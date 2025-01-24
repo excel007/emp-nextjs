@@ -1,37 +1,35 @@
 import { db } from "@/app/lib/db/db";
-import { department } from "@/app/lib/db/schema";
+import { department, employee } from "@/app/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EditIcon, DeleteIcon ,StepBackIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link";
 
-import { deleteAction } from "../../lib/actions/department";
+import { deleteAction } from "../../lib/actions/employee";
 export default async function departmentPage({ params }: { params: { id: string } }) {
     const { id } = await params;
-    const idDepartment = parseInt(id);
-    if (isNaN(idDepartment)) {
-        throw new Error('Invalid Invoice ID')
+    const idEmployee = parseInt(id);
+    if (isNaN(idEmployee)) {
+        throw new Error('Invalid Employee ID')
     }
 
-    const [result] = await db.select().from(department).where(eq(department.id, idDepartment));
-    console.log(result);
+    const [result] = await db.select().from(employee).where(eq(employee.id, idEmployee));
 
     return (
         <div>
             <div className="flex justify-between w-full p-8">
-                <h1 className="text-3xl">Detail Department id #{result.id}</h1>
+                <h1 className="text-3xl">Detail Employee id #{result.id}</h1>
                 <div>
                     <Button variant={"ghost"} asChild>
-                        <Link href={`/department`}>
+                        <Link href={`/employee`}>
                             <StepBackIcon className="h-4 w-4" />
                             go back
                         </Link>
                     </Button>
                     <Button variant={"ghost"} className="inline-flex gap-2" asChild>
-                        <Link href={`/department/${result.id}/edit`}>
+                        <Link href={`/employee/${result.id}/edit`}>
                             <EditIcon className="h-4 w-4" />
                             Edit
                         </Link>
@@ -53,8 +51,16 @@ export default async function departmentPage({ params }: { params: { id: string 
 
                 <ul className="grid gap-2">
                     <li className="flex gap-4">
-                        <strong className="block w-60 flex-shrink-0 font-medium text-sm">Department Name</strong>
-                        <span>{result.name}</span>
+                        <strong className="block w-60 flex-shrink-0 font-medium text-sm">Name</strong>
+                        <span>{result.firstname} {result.lastname}</span>
+                    </li>
+                    <li className="flex gap-4">
+                        <strong className="block w-60 flex-shrink-0 font-medium text-sm">Salary</strong>
+                        <span>{result.salary}</span>
+                    </li>
+                    <li className="flex gap-4">
+                        <strong className="block w-60 flex-shrink-0 font-medium text-sm">Salary</strong>
+                        <span>{result.salary}</span>
                     </li>
                 </ul>
             </div>

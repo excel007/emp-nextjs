@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Form from "next/form";
 
-import { createAction } from "../action";
+import { createAction } from "../../lib/actions/department";
 
 export default async function Page() {
     return (
