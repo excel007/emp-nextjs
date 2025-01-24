@@ -6,7 +6,7 @@ export default function Header() {
                 <p>EMP Logo</p>
                 <nav>
                     <ul className="flex gap-4">
-                        <li><Link href={"#"}>Department</Link></li>
+                        <li><Link href={"/department"}>Department</Link></li>
                         <li><Link href={"#"}>Employee</Link></li>
                     </ul>
                 </nav>
