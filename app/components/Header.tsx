@@ -8,6 +8,8 @@ export default function Header() {
                     <ul className="flex gap-4">
                         <li><Link href={"/department"}>Department</Link></li>
                         <li><Link href={"/employee"}>Employee</Link></li>
+                        <li><Link href={"/employee/search"}>Employee Search</Link></li>
+
                     </ul>
                 </nav>
             </div>

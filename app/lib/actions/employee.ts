@@ -2,7 +2,7 @@
 import { db } from "../db/db";
 import { department, employee } from "../db/schema";
 
-import { eq } from "drizzle-orm";
+import { eq, ilike, or } from "drizzle-orm";
 import { redirect } from "next/navigation";
 
 export async function createAction(formData: FormData) {
@@ -51,4 +51,19 @@ export async function editAction(formData: FormData) {
         .where(eq(employee.id, id));
 
     redirect(`/employee/${id}`);
+}
+
+export async function searchAction(keyword: string) {
+    const results = await db.select({
+        id: employee.id,
+        firstname: employee.firstname,
+        lastname: employee.lastname,
+    })
+        .from(employee)
+        .where(or(
+            ilike(employee.firstname, `%${keyword}%`),
+            ilike(employee.lastname, `%${keyword}%`)
+        ))
+        .orderBy(employee.id);
+    return results;
 }
