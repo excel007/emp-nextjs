@@ -9,7 +9,7 @@ export default function Header() {
                         <li><Link href={"/department"}>Department</Link></li>
                         <li><Link href={"/employee"}>Employee</Link></li>
                         <li><Link href={"/employee/search"}>Employee Search</Link></li>
-
+                        <li><Link href={"/report"}>Report</Link></li>
                     </ul>
                 </nav>
             </div>
