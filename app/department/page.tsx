@@ -7,14 +7,14 @@ import {
     TableBody,
     TableCaption,
     TableCell,
-    TableFooter,
+    // TableFooter,
     TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
 import { db } from "../lib/db/db";
 import { department } from "../lib/db/schema";
-import { eq, sql ,asc,desc } from "drizzle-orm";
+import { asc } from "drizzle-orm";
 
 export default async function Page() {
     const results = await db.select().from(department).orderBy(asc(department.id));

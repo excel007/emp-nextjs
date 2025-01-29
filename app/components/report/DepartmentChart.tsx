@@ -17,7 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { department } from "@/app/lib/db/schema"
+
 // const chartData = [
 //   { month: "January", desktop: 186 },
 //   { month: "February", desktop: 305 },

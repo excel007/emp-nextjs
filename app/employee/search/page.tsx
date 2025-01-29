@@ -15,7 +15,7 @@ import {
 
 import { db } from "../../lib/db/db";
 import { employee, department } from "../../lib/db/schema";
-import { eq, sql, asc, desc, ilike } from "drizzle-orm";
+import { eq,  asc } from "drizzle-orm";
 
 import { searchAction } from "@/app/lib/actions/employee";
 // async function fetchInitialEmployees() {

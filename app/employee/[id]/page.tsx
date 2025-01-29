@@ -1,5 +1,5 @@
 import { db } from "@/app/lib/db/db";
-import { department, employee } from "@/app/lib/db/schema";
+import { employee } from "@/app/lib/db/schema";
 import { eq } from "drizzle-orm";
 
 import { Button } from "@/components/ui/button";

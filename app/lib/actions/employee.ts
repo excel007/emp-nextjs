@@ -1,6 +1,6 @@
 "use server";
 import { db } from "../db/db";
-import { department, employee } from "../db/schema";
+import { employee } from "../db/schema";
 
 import { eq, ilike, or } from "drizzle-orm";
 import { redirect } from "next/navigation";

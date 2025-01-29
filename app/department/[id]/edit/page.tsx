@@ -2,7 +2,7 @@ import { db } from "@/app/lib/db/db";
 import { department } from "@/app/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-import { Ghost, StepBackIcon } from "lucide-react";
+import { StepBackIcon } from "lucide-react";
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

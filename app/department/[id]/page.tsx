@@ -2,7 +2,6 @@ import { db } from "@/app/lib/db/db";
 import { department } from "@/app/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EditIcon, DeleteIcon ,StepBackIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator"

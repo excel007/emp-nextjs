@@ -3,7 +3,7 @@ import {
     TableBody,
     TableCaption,
     TableCell,
-    TableFooter,
+    // TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -13,7 +13,7 @@ import { DepartmentChart } from "../components/report/DepartmentChart";
 
 import { db } from "../lib/db/db";
 import { employee, department } from "../lib/db/schema";
-import { eq, sql, asc, desc, avg } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 type Result = { departmentName: string, employeeCount: number, avgSalary: number | null };
 
