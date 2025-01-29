@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link";
 
 import { deleteAction } from "../../lib/actions/employee";
-export default async function departmentPage({ params }: { params: { id: string } }) {
+export default async function departmentPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const idEmployee = parseInt(id);
     if (isNaN(idEmployee)) {

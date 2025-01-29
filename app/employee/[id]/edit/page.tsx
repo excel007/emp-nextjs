@@ -19,7 +19,7 @@ import Link from "next/link";
 import { editAction } from "../../../lib/actions/employee";
 
 
-export default async function editEmployee({ params }: { params: { id: string } }) {
+export default async function editEmployee({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const idEmployee = parseInt(id);
     if (isNaN(idEmployee)) {
@@ -46,7 +46,7 @@ export default async function editEmployee({ params }: { params: { id: string } 
                     <Label>Salary</Label>
                     <Input type="text" id="salary" name="salary" placeholder="99999" defaultValue={result.salary}/>
                     <Label>Department {result.iddepartment}</Label>
-                    <Select id="iddepartment" name="iddepartment" defaultValue={result.iddepartment?.toString() || ''}>
+                    <Select name="iddepartment" defaultValue={result.iddepartment?.toString() || ''}>
                         <SelectTrigger className="w-[180px]" >
                             <SelectValue />
                         </SelectTrigger>

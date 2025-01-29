@@ -29,7 +29,7 @@ export default async function Page() {
                 <Label>Salary</Label>
                 <Input type="text" id="salary" name="salary" placeholder="99999" />
                 <Label>Department</Label>
-                <Select id="iddepartment" name="iddepartment">
+                <Select name="iddepartment">
                     <SelectTrigger className="w-[180px]" >
                         <SelectValue placeholder="choose" />
                     </SelectTrigger>

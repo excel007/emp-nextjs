@@ -12,7 +12,7 @@ import Link from "next/link";
 import { editAction } from "../../../lib/actions/department";
 
 
-export default async function editDepartment({ params }: { params: { id: string } }) {
+export default async function editDepartment({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const idDepartment = parseInt(id);
     if (isNaN(idDepartment)) {

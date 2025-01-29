@@ -34,7 +34,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function  DepartmentChart({data}) {
+type Result = { departmentName: string, employeeCount: number, avgSalary: number | null };
+
+
+export function  DepartmentChart({data} : {data : Result[]}) {
   // console.log(data)
   const chartData = data.map((item) => ({
     departmentName: item.departmentName,

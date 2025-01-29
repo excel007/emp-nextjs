@@ -1,6 +1,6 @@
 "use server";
 import { db } from "../db/db";
-import { employee } from "../db/schema";
+import { employee, department } from "../db/schema";
 
 import { eq, ilike, or } from "drizzle-orm";
 import { redirect } from "next/navigation";
@@ -58,8 +58,11 @@ export async function searchAction(keyword: string) {
         id: employee.id,
         firstname: employee.firstname,
         lastname: employee.lastname,
+        departmentName: department.name
     })
         .from(employee)
+        .leftJoin(department, eq(employee.iddepartment, department.id))
+
         .where(or(
             ilike(employee.firstname, `%${keyword}%`),
             ilike(employee.lastname, `%${keyword}%`)
