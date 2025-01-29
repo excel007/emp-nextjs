@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { CirclePlus, Eye, EditIcon } from "lucide-react";
@@ -14,7 +16,7 @@ import {
 } from "@/components/ui/table"
 
 import { db } from "../lib/db/db";
-import { employee , department } from "../lib/db/schema";
+import { employee, department } from "../lib/db/schema";
 import { eq, asc } from "drizzle-orm";
 export default async function Page() {
     const results = await db.select({
@@ -23,10 +25,10 @@ export default async function Page() {
         lastname: employee.lastname,
         departmentName: department.name
     })
-    .from(employee)
-    .leftJoin(department, eq(employee.iddepartment, department.id))
-    .orderBy(asc(employee.id));
-
+        .from(employee)
+        .leftJoin(department, eq(employee.iddepartment, department.id))
+        .orderBy(asc(employee.id));
+    console.log('results', results);
     return (
         <div>
             <div className="flex justify-between w-full p-8">
